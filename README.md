@@ -259,4 +259,4 @@ MSc Data Science, Rutgers University.
 
 ## 📬 Contact
 
-**Sanjith Ganesh** — [LinkedIn](https://linkedin.com/in/sanjithganesh) · [GitHub](https://github.com/SanjithGanesh) · [Portfolio](https://sanjithganesh.com) · gsj2442@gmail.com
+**Sanjith Ganesh** — [LinkedIn](https://linkedin.com/in/sanjithganesh) · [GitHub](https://github.com/SanjithGanesh) · [Portfolio]([https://sanjithganesh.com](https://sanjithganesh.github.io/Portfolio-Website/)) · gsj2442@gmail.com
