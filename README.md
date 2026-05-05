@@ -124,7 +124,20 @@ bms-pipeline/
 - Gmail account with App Password (for OTP + support emails)
 - Gemini API key (free at [aistudio.google.com](https://aistudio.google.com))
 
-### Step 1 — Fill in `.env`
+### Step 1 — Get a Gemini API Key
+
+The AI report generator uses Google Gemini 2.5 Flash. The free tier gives 1,500 requests/day — well within any research or hackathon use.
+
+1. Go to [aistudio.google.com](https://aistudio.google.com)
+2. Sign in with your Google account
+3. Click **Get API key** in the left sidebar
+4. Click **Create API key** → select an existing Google Cloud project or create a new one
+5. Copy the key — it starts with `AIzaSy...`
+6. Paste it into `backend/.env` as `GEMINI_API_KEY=AIzaSy...`
+
+> **Note:** The key is tied to your Google account. If you hit a `503 overloaded` error, Gemini's servers are temporarily busy — wait 30 seconds and try again. If you hit a `429 rate limit` error, wait 60 seconds (free tier allows 10 requests per minute).
+
+### Step 2 — Fill in `.env`
 
 ```dotenv
 GEMINI_API_KEY=AIzaSy...
@@ -141,18 +154,18 @@ FRONTEND_URL=http://localhost:3000
 BACKEND_URL=http://localhost:8000
 ```
 
-### Step 2 — Google Cloud Console
+### Step 3 — Google Cloud Console
 
 1. [console.cloud.google.com](https://console.cloud.google.com) → APIs & Services → Credentials → OAuth 2.0 Client
 2. Authorised JavaScript origins: `http://localhost:3000` and `http://localhost:8000`
 3. Authorised redirect URI: `http://localhost:8000/auth/google/callback`
 4. OAuth consent screen → Test users → add your Gmail
 
-### Step 3 — Gmail App Password
+### Step 4 — Gmail App Password
 
 Google Account → Security → 2-Step Verification → App Passwords → create one for Mail.
 
-### Step 4 — Start backend
+### Step 5 — Start backend
 
 ```bash
 cd backend
@@ -163,7 +176,7 @@ uvicorn main:app --reload --port 8000
 
 Verify: [http://localhost:8000/auth/debug](http://localhost:8000/auth/debug)
 
-### Step 5 — Start frontend
+### Step 6 — Start frontend
 
 ```bash
 cd frontend
